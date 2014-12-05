@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+ <p:outputLabel value="#{bundle.CreateGroupeLabel_id}" for="id" />
+ <p:inputText id="id" value="#{groupeController.selected.id}" title="#{bundle.CreateGroupeTitle_id}" required="true" requiredMessage="#{bundle.CreateGroupeRequiredMessage_id}"/>
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -12,12 +16,10 @@
             <h:form id="GroupeCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{groupeController.selected != null}">
-                        <!-- 
-                        <p:outputLabel value="#{bundle.CreateGroupeLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{groupeController.selected.id}" title="#{bundle.CreateGroupeTitle_id}" required="true" requiredMessage="#{bundle.CreateGroupeRequiredMessage_id}"/>
-                        -->
+
+
                         <p:outputLabel value="#{bundle.CreateGroupeLabel_groupname}" for="groupname" />
-             
+
                         <p:inputText id="groupname" value="#{groupeController.selected.groupname}" title="#{bundle.CreateGroupeTitle_groupname}" required="true" requiredMessage="#{bundle.CreateGroupeRequiredMessage_groupname}"/>
                         <p:outputLabel value="#{bundle.CreateGroupeLabel_description}" for="description" />
                         <p:inputTextarea rows="4" cols="30" id="description" value="#{groupeController.selected.description}" title="#{bundle.CreateGroupeTitle_description}" />

@@ -59,7 +59,7 @@ public class Utilisateurs implements Serializable {
     private String username;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 40)
+    @Size(min = 1, max = 64)
     @Column(name = "password")
     private String password;
     @Basic(optional = false)
@@ -112,6 +112,7 @@ public class Utilisateurs implements Serializable {
             byte[] digest = md.digest();
             BigInteger bigInt = new BigInteger(1, digest);
             this.password = bigInt.toString(16);
+            //this.password=(new Integer (bigInt.toString(16).length())).toString();
         } catch (NoSuchAlgorithmException | UnsupportedEncodingException ex) {
             Logger.getLogger(Utilisateurs.class.getName()).log(Level.SEVERE, null, ex);
         }
