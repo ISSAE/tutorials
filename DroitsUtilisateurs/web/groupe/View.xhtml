@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GroupeViewDlg" widgetVar="GroupeViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewGroupeTitle}">
+            <h:form id="GroupeViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{groupeController.selected != null}">
+                        <h:outputText value="#{bundle.ViewGroupeLabel_id}"/>
+                        <h:outputText value="#{groupeController.selected.id}" title="#{bundle.ViewGroupeTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewGroupeLabel_groupname}"/>
+                        <h:outputText value="#{groupeController.selected.groupname}" title="#{bundle.ViewGroupeTitle_groupname}"/>
+                        <h:outputText value="#{bundle.ViewGroupeLabel_description}"/>
+                        <h:outputText value="#{groupeController.selected.description}" title="#{bundle.ViewGroupeTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewGroupeLabel_username}"/>
+                        <h:outputText value="#{groupeController.selected.username}" title="#{bundle.ViewGroupeTitle_username}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="GroupeViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

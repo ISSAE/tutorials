@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UtilisateursEditDlg" widgetVar="UtilisateursEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditUtilisateursTitle}">
+            <h:form id="UtilisateursEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{utilisateursController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditUtilisateursLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{utilisateursController.selected.email}" title="#{bundle.EditUtilisateursTitle_email}" required="true" requiredMessage="#{bundle.EditUtilisateursRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.EditUtilisateursLabel_username}" for="username" />
+                        <p:inputText id="username" value="#{utilisateursController.selected.username}" title="#{bundle.EditUtilisateursTitle_username}" required="true" requiredMessage="#{bundle.EditUtilisateursRequiredMessage_username}"/>
+                        <p:outputLabel value="#{bundle.EditUtilisateursLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{utilisateursController.selected.password}" title="#{bundle.EditUtilisateursTitle_password}" required="true" requiredMessage="#{bundle.EditUtilisateursRequiredMessage_password}"/>
+                        <p:outputLabel value="#{bundle.EditUtilisateursLabel_tel}" for="tel" />
+                        <p:inputText id="tel" value="#{utilisateursController.selected.tel}" title="#{bundle.EditUtilisateursTitle_tel}" required="true" requiredMessage="#{bundle.EditUtilisateursRequiredMessage_tel}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{utilisateursController.update}" value="#{bundle.Save}" update="display,:UtilisateursListForm:datalist,:growl" oncomplete="handleSubmit(args, 'UtilisateursEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="UtilisateursEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
